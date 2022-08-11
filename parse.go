@@ -38,7 +38,7 @@ var Logger = func(t LogType, messages interface{}) {
 var (
 	specTokens     = []token{":", "::"}
 	definedTokens  = []rune{'{', '}', '[', ']', '(', ')', ',', '='}
-	voidedTokens   = []rune{';', ' ', '\n', '\t'}
+	voidedTokens   = []rune{';', ' ', '\n', '\t', '\r'}
 	stringLiterals = []rune{'"', '\''}
 )
 
