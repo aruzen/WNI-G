@@ -117,10 +117,13 @@ func (receiver Value) Get(pt string) Element {
 }
 
 func (receiver Value) GetByPointerTexts(pt []PointerText) Element {
+	if len(pt) == 0 {
+		return receiver
+	}
 	if pt[0] == ".." {
 		return (*receiver.Node().Parent).GetByPointerTexts(pt[1:])
 	}
-	return receiver
+	return nil
 }
 
 func (receiver Value) Regget(pt string) interface{} {
@@ -215,7 +218,7 @@ func (receiver Struct) GetByPointerTexts(pt []PointerText) Element {
 			return m.GetByPointerTexts(pt[1:])
 		}
 	}
-	return receiver
+	return nil
 }
 
 func (receiver Struct) Regget(pt string) interface{} {

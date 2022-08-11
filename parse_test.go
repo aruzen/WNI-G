@@ -54,9 +54,9 @@ std :{
 }
 
 class Circle :{
-    center : ..::std::Point()
+    center : std::Point()
     r      : 10
-    color  : ..::std::Color()
+    color  : std::Color()
 }
 
 redCircle : Circle(std::Point(100, 100), 100, std::Color(r=255))

@@ -312,6 +312,9 @@ func (receiver *parseSession) instance(separatorIndex tokenIndex, searched token
 	receiver.postProcesses = append(receiver.postProcesses, func(nns *Struct) {
 		base := *(*i.Data.Node().Parent).Node().Parent
 		e := base.Get(i.classPointer)
+		if e == nil {
+			return
+		}
 		c, ok := e.(Struct)
 		if !ok || !c.IsClass() {
 			return
