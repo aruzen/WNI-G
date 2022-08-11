@@ -187,6 +187,7 @@ func (receiver *parseSession) block(p *Struct, searchedStructuralIndex structura
 				s := Struct{}
 				s.node = &n
 				idx = receiver.block(&s, idx+1)
+				searched = receiver.indexes[idx].Key
 				s.isClass = n.HaveModifier("class")
 				p.Members = append(p.Members, s)
 				continue // continueがないと、終端検索に引っかかる

@@ -40,19 +40,26 @@ func TestTokenizer(t *testing.T) {
 
 func TestParse(t *testing.T) {
 	nns := Parse(`
-class Color : {
-	r : 0
-	g : 0
-	b : 0
-	a : 1.0
+std :{
+    class Color :{
+        r : 0
+        g : 0
+        b : 0
+        a : 1.0
+    }
+    class Point :{
+        x : 0
+        y : 0
+    }
 }
-class Circle : {
-	r : 10
-	color : ..::Color()
+
+class Circle :{
+    center : ..::std::Point()
+    r      : 10
+    color  : ..::std::Color()
 }
-pi : 3.14
-triColor : [Color(r=100), Color(g=100), Color(b=100)]
-red : Color(r=100)
+
+redCircle : Circle(std::Point(100, 100), 100, std::Color(r=255))
 `)
 
 	got := nns.ToMap()
